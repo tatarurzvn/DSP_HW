@@ -21,7 +21,7 @@ def myRampPulse(A, t1, t2, t):
 # Test
 A = 1
 t1, t2 = 3, 4
-t = np.arange(0, 5, .05)
+t = np.arange(-5, 5, .05)
 plt.plot(myRampPulse(A, t1, t2, t))
 
 def myStairs(t):
@@ -41,6 +41,20 @@ def mySawtooth(t):
     return res
 
 # Test
-t = np.arange(0, 5, .05)
+t = np.arange(-5, 5, .05)
 plt.plot(mySawtooth(t))
+
+def mySine(A, freq, phi, t):
+    return A * np.sin(2 * np.pi * freq * t + phi)
+
+# Test
+t = np.arange(-5, 5, .05)
+plt.plot(mySine(2, .5, 0, t) + 2)
+
+def mySinc(A, freq, phi, t):
+    return mySine(A, freq, phi, t) / (2 * np.pi * freq * t + phi)
+
+# Test
+t = np.arange(-5, 5, .05)
+plt.plot(mySinc(2, .5, 0, t) + 2)
 
