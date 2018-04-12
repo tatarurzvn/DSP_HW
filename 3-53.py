@@ -58,3 +58,14 @@ def mySinc(A, freq, phi, t):
 t = np.arange(-5, 5, .05)
 plt.plot(mySinc(2, .5, 0, t) + 2)
 
+def myGaussBell(a, b, c, t):
+    res = []
+    for x in t:
+        val = a * np.exp((-1) * ((x - b) ** 2) / (2 * (c ** 2)))
+        res.append(val)
+    return res
+
+# Test
+t = np.arange(-3, 3, .05)
+plt.plot(myGaussBell(3, 0, 1, t))
+
